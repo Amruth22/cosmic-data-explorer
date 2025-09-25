@@ -377,11 +377,24 @@
             <button class="nav-btn" onclick="showSection(3)">3. Beneficiary</button>
             <button class="nav-btn" onclick="showSection(4)">4. Financial Info</button>
             <button class="nav-btn" onclick="showSection(5)">5. Personal Info</button>
-            <button class="nav-btn" onclick="showSection(6)">6. Health Declaration</button>
-            <button class="nav-btn" onclick="showSection(7)">7. Medical Info</button>
-            <button class="nav-btn" onclick="showSection(8)">8. Payment</button>
-        </div>
-
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Applicant is a member of the Chartered Professional Accountants of:</label>
+                        <select id="cpaOrganization" required>
+                            <option value="">Select CPA Organization</option>
+                            <option value="Ontario">Ontario</option>
+                            <option value="New Brunswick">New Brunswick</option>
+                            <option value="Newfoundland and Labrador">Newfoundland and Labrador</option>
+                            <option value="Nova Scotia">Nova Scotia</option>
+                            <option value="Prince Edward Island">Prince Edward Island</option>
+                            <option value="Bermuda">Bermuda</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>CPA Membership Number:</label>
+                        <input type="text" id="membershipNo" placeholder="Enter membership number" required>
+                    </div>
+                </div>
         <div class="form-container">
             <!-- Section 1: Applicant Information -->
             <div class="section" id="section1">
