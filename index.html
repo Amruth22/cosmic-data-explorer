@@ -1,0 +1,1990 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manulife CPA Term Life Insurance Application</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .logo-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .logo {
+            width: 60px;
+            height: 60px;
+            background: #1e3a8a;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .header h1 {
+            color: #1e3a8a;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .header .subtitle {
+            color: #666;
+            font-size: 1.2rem;
+        }
+
+        .extraction-info {
+            background: #f8fafc;
+            border-left: 4px solid #3b82f6;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+        }
+
+        .form-container {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .section {
+            margin-bottom: 40px;
+            border-bottom: 2px solid #e5e7eb;
+            padding-bottom: 30px;
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        .section-title {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 10px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #374151;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .checkbox-group input[type="checkbox"],
+        .checkbox-group input[type="radio"] {
+            width: auto;
+            margin: 0;
+        }
+
+        .table-container {
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        .insurance-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .insurance-table th,
+        .insurance-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .insurance-table th {
+            background: #f8fafc;
+            font-weight: 600;
+            color: #374151;
+        }
+
+        .insurance-table tr:hover {
+            background: #f8fafc;
+        }
+
+        .premium-option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .premium-option:hover {
+            border-color: #667eea;
+            background: #f8fafc;
+        }
+
+        .premium-option input[type="radio"] {
+            margin: 0;
+        }
+
+        .medical-questions {
+            background: #fef3c7;
+            border: 2px solid #f59e0b;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .medical-questions h4 {
+            color: #92400e;
+            margin-bottom: 15px;
+        }
+
+        .question-item {
+            margin-bottom: 15px;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            border-left: 4px solid #f59e0b;
+        }
+
+        .yes-no-group {
+            display: flex;
+            gap: 20px;
+            margin-top: 10px;
+        }
+
+        .yes-no-group label {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-weight: normal;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 10px 5px;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: #6b7280;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #e5e7eb;
+            border-radius: 4px;
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px solid #e5e7eb;
+        }
+
+        .section-nav {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .nav-btn {
+            padding: 8px 16px;
+            background: #f3f4f6;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        .nav-btn.active {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
+
+        .nav-btn:hover {
+            background: #e5e7eb;
+        }
+
+        .nav-btn.active:hover {
+            background: #5a67d8;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .navigation {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .fade-in {
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo-section">
+                <div class="logo">CPA</div>
+                <div class="logo">M</div>
+            </div>
+            <h1>Manulife CPA Term Life Insurance Application</h1>
+            <p class="subtitle">Complete PDF Content Extraction - Interactive Form</p>
+        </div>
+
+        <div class="extraction-info">
+            <h3>📄 Document Information</h3>
+            <p><strong>Total Pages:</strong> 10 | <strong>Extraction Method:</strong> Claude Vision AI (Async Processing) | <strong>Date:</strong> 462333.156</p>
+        </div>
+
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+
+        <div class="section-nav">
+            <button class="nav-btn active" onclick="showSection(1)">1. Applicant Info</button>
+            <button class="nav-btn" onclick="showSection(2)">2. Insurance Amount</button>
+            <button class="nav-btn" onclick="showSection(3)">3. Beneficiary</button>
+            <button class="nav-btn" onclick="showSection(4)">4. Financial Info</button>
+            <button class="nav-btn" onclick="showSection(5)">5. Personal Info</button>
+            <button class="nav-btn" onclick="showSection(6)">6. Health Declaration</button>
+            <button class="nav-btn" onclick="showSection(7)">7. Medical Info</button>
+            <button class="nav-btn" onclick="showSection(8)">8. Payment</button>
+        </div>
+
+        <div class="form-container">
+            <!-- Section 1: Applicant Information -->
+            <div class="section" id="section1">
+                <div class="section-title">
+                    👤 Section 1: Applicant Information
+                </div>
+                
+                <div class="form-group">
+                    <label>CPA Ontario Membership Number:</label>
+                    <input type="text" id="membershipNo" placeholder="Enter membership number">
+                </div>
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Last Name:</label>
+                        <input type="text" id="lastName" placeholder="Enter last name">
+                    </div>
+                    <div class="form-group">
+                        <label>First Name:</label>
+                        <input type="text" id="firstName" placeholder="Enter first name">
+                    </div>
+                    <div class="form-group">
+                        <label>Initial:</label>
+                        <input type="text" id="initial" maxlength="1" placeholder="M">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Gender:</label>
+                    <div class="checkbox-group">
+                        <input type="radio" id="male" name="gender" value="male">
+                        <label for="male">Male</label>
+                        <input type="radio" id="female" name="gender" value="female">
+                        <label for="female">Female</label>
+                    </div>
+                </div>
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Home Address:</label>
+                        <input type="text" id="homeAddress" placeholder="Enter home address">
+                    </div>
+                    <div class="form-group">
+                        <label>Unit/Apt:</label>
+                        <input type="text" id="unit" placeholder="Unit/Apt">
+                    </div>
+                    <div class="form-group">
+                        <label>City:</label>
+                        <input type="text" id="city" placeholder="Enter city">
+                    </div>
+                    <div class="form-group">
+                        <label>Province:</label>
+                        <select id="province">
+                            <option value="">Select Province</option>
+                            <option value="ON">Ontario</option>
+                            <option value="BC">British Columbia</option>
+                            <option value="AB">Alberta</option>
+                            <option value="SK">Saskatchewan</option>
+                            <option value="MB">Manitoba</option>
+                            <option value="QC">Quebec</option>
+                            <option value="NB">New Brunswick</option>
+                            <option value="NS">Nova Scotia</option>
+                            <option value="PE">Prince Edward Island</option>
+                            <option value="NL">Newfoundland and Labrador</option>
+                            <option value="YT">Yukon</option>
+                            <option value="NT">Northwest Territories</option>
+                            <option value="NU">Nunavut</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Postal Code:</label>
+                        <input type="text" id="postalCode" placeholder="A1A 1A1">
+                    </div>
+                </div>
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Date of Birth:</label>
+                        <input type="date" id="dateOfBirth">
+                    </div>
+                    <div class="form-group">
+                        <label>Place of Birth (province, country):</label>
+                        <input type="text" id="placeOfBirth" placeholder="Ontario, Canada">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Smoking Status:</label>
+                    <div class="checkbox-group">
+                        <input type="radio" id="smoker" name="smokingStatus" value="smoker">
+                        <label for="smoker">Smoker</label>
+                        <input type="radio" id="nonSmoker" name="smokingStatus" value="nonSmoker">
+                        <label for="nonSmoker">Non-Smoker</label>
+                    </div>
+                    <small>*Non-smoker rates apply to people who have not used any form of tobacco or tobacco cessation products, including e-cigarettes, in the past 12 months.</small>
+                </div>
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Preferred Contact Number:</label>
+                        <input type="tel" id="contactNumber" placeholder="(555) 123-4567">
+                    </div>
+                    <div class="form-group">
+                        <label>Email:</label>
+                        <input type="email" id="email" placeholder="your.email@example.com">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Occupation:</label>
+                    <input type="text" id="occupation" placeholder="Enter your occupation">
+                </div>
+
+                <div class="form-group">
+                    <label>Are you self-employed?</label>
+                    <div class="checkbox-group">
+                        <input type="radio" id="selfEmployedYes" name="selfEmployed" value="yes">
+                        <label for="selfEmployedYes">Yes</label>
+                        <input type="radio" id="selfEmployedNo" name="selfEmployed" value="no">
+                        <label for="selfEmployedNo">No</label>
+                    </div>
+                </div>
+
+                <div class="form-group" id="businessDescription" style="display: none;">
+                    <label>If yes, please describe the nature of your business/duties:</label>
+                    <textarea id="businessDetails" rows="3" placeholder="Describe your business/duties"></textarea>
+                </div>
+
+                <!-- Spouse Information -->
+                <h3 style="margin-top: 30px; color: #667eea;">Spouse Information (if applying for Spouse coverage)</h3>
+                
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Spouse's Last Name:</label>
+                        <input type="text" id="spouseLastName" placeholder="Enter spouse's last name">
+                    </div>
+                    <div class="form-group">
+                        <label>Spouse's First Name:</label>
+                        <input type="text" id="spouseFirstName" placeholder="Enter spouse's first name">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Spouse's Gender:</label>
+                    <div class="checkbox-group">
+                        <input type="radio" id="spouseMale" name="spouseGender" value="male">
+                        <label for="spouseMale">Male</label>
+                        <input type="radio" id="spouseFemale" name="spouseGender" value="female">
+                        <label for="spouseFemale">Female</label>
+                    </div>
+                </div>
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Spouse's Date of Birth:</label>
+                        <input type="date" id="spouseDateOfBirth">
+                    </div>
+                    <div class="form-group">
+                        <label>Spouse's Place of Birth:</label>
+                        <input type="text" id="spousePlaceOfBirth" placeholder="Province, Country">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Spouse's Smoking Status:</label>
+                    <div class="checkbox-group">
+                        <input type="radio" id="spouseSmoker" name="spouseSmokingStatus" value="smoker">
+                        <label for="spouseSmoker">Smoker</label>
+                        <input type="radio" id="spouseNonSmoker" name="spouseSmokingStatus" value="nonSmoker">
+                        <label for="spouseNonSmoker">Non-Smoker</label>
+                    </div>
+                </div>
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Spouse's Occupation:</label>
+                        <input type="text" id="spouseOccupation" placeholder="Enter spouse's occupation">
+                    </div>
+                    <div class="form-group">
+                        <label>Spouse's Contact Number:</label>
+                        <input type="tel" id="spouseContactNumber" placeholder="(555) 123-4567">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 2: Amount of Insurance -->
+            <div class="section hidden" id="section2">
+                <div class="section-title">
+                    💰 Section 2: Amount of Insurance Applying for
+                </div>
+
+                <div class="form-group">
+                    <label>I am applying for:</label>
+                    <div class="checkbox-group">
+                        <input type="radio" id="newCoverage" name="coverageType" value="new">
+                        <label for="newCoverage">New coverage</label>
+                        <input type="radio" id="additionalCoverage" name="coverageType" value="additional">
+                        <label for="additionalCoverage">Additional coverage</label>
+                    </div>
+                </div>
+
+                <div class="form-group" id="certificateNumber" style="display: none;">
+                    <label>If currently insured under this plan, your certificate number:</label>
+                    <input type="text" id="certNumber" placeholder="Enter certificate number">
+                </div>
+
+                <h3 style="color: #667eea; margin: 30px 0 20px 0;">Term Life Insurance</h3>
+                <p><em>Coverage of $50,000 to $2,000,000 available. Do not include coverage already in force.</em></p>
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Applicant - Amount (in increments of $25,000):</label>
+                        <input type="number" id="applicantAmount" min="50000" max="2000000" step="25000" placeholder="$100,000">
+                    </div>
+                    <div class="form-group">
+                        <label>Add Future Insurability Option (FIO):</label>
+                        <div class="checkbox-group">
+                            <input type="radio" id="fio25k" name="applicantFIO" value="25000">
+                            <label for="fio25k">$25,000</label>
+                            <input type="radio" id="fio50k" name="applicantFIO" value="50000">
+                            <label for="fio50k">$50,000</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Spouse - Amount (in increments of $25,000):</label>
+                        <input type="number" id="spouseAmount" min="50000" max="2000000" step="25000" placeholder="$100,000">
+                    </div>
+                    <div class="form-group">
+                        <label>Spouse - Add Future Insurability Option (FIO):</label>
+                        <div class="checkbox-group">
+                            <input type="radio" id="spouseFio25k" name="spouseFIO" value="25000">
+                            <label for="spouseFio25k">$25,000</label>
+                            <input type="radio" id="spouseFio50k" name="spouseFIO" value="50000">
+                            <label for="spouseFio50k">$50,000</label>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 style="color: #667eea; margin: 30px 0 20px 0;">Major Accident Protection</h3>
+                <p><em>Coverage of $25,000 to $750,000 available.</em></p>
+
+                <h4>Applicant:</h4>
+                <div class="table-container">
+                    <table class="insurance-table">
+                        <thead>
+                            <tr>
+                                <th>Coverage Level</th>
+                                <th>Major Impairment</th>
+                                <th>Accidental Death</th>
+                                <th>Monthly Premium</th>
+                                <th>Select</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Up to $50,000</td>
+                                <td>Up to $50,000</td>
+                                <td>$25,000</td>
+                                <td>$0.88</td>
+                                <td><input type="radio" name="applicantAccident" value="50000"></td>
+                            </tr>
+                            <tr>
+                                <td>Up to $100,000</td>
+                                <td>Up to $100,000</td>
+                                <td>$50,000</td>
+                                <td>$1.76</td>
+                                <td><input type="radio" name="applicantAccident" value="100000"></td>
+                            </tr>
+                            <tr>
+                                <td>Up to $200,000</td>
+                                <td>Up to $200,000</td>
+                                <td>$100,000</td>
+                                <td>$3.52</td>
+                                <td><input type="radio" name="applicantAccident" value="200000"></td>
+                            </tr>
+                            <tr>
+                                <td>Up to $400,000</td>
+                                <td>Up to $400,000</td>
+                                <td>$200,000</td>
+                                <td>$7.06</td>
+                                <td><input type="radio" name="applicantAccident" value="400000"></td>
+                            </tr>
+                            <tr>
+                                <td>Other amount</td>
+                                <td colspan="2">Custom amount</td>
+                                <td><input type="number" step="0.01" placeholder="$0.00"></td>
+                                <td><input type="radio" name="applicantAccident" value="other"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h4>Spouse:</h4>
+                <div class="table-container">
+                    <table class="insurance-table">
+                        <thead>
+                            <tr>
+                                <th>Coverage Level</th>
+                                <th>Major Impairment</th>
+                                <th>Accidental Death</th>
+                                <th>Monthly Premium</th>
+                                <th>Select</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Up to $50,000</td>
+                                <td>Up to $50,000</td>
+                                <td>$25,000</td>
+                                <td>$0.88</td>
+                                <td><input type="radio" name="spouseAccident" value="50000"></td>
+                            </tr>
+                            <tr>
+                                <td>Up to $100,000</td>
+                                <td>Up to $100,000</td>
+                                <td>$50,000</td>
+                                <td>$1.76</td>
+                                <td><input type="radio" name="spouseAccident" value="100000"></td>
+                            </tr>
+                            <tr>
+                                <td>Up to $200,000</td>
+                                <td>Up to $200,000</td>
+                                <td>$100,000</td>
+                                <td>$3.52</td>
+                                <td><input type="radio" name="spouseAccident" value="200000"></td>
+                            </tr>
+                            <tr>
+                                <td>Up to $400,000</td>
+                                <td>Up to $400,000</td>
+                                <td>$200,000</td>
+                                <td>$7.06</td>
+                                <td><input type="radio" name="spouseAccident" value="400000"></td>
+                            </tr>
+                            <tr>
+                                <td>Other amount</td>
+                                <td colspan="2">Custom amount</td>
+                                <td><input type="number" step="0.01" placeholder="$0.00"></td>
+                                <td><input type="radio" name="spouseAccident" value="other"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h4>Child Life & Accident Insurance</h4>
+                <p><em>The monthly premium covers all of your eligible dependent children.</em></p>
+                <div class="table-container">
+                    <table class="insurance-table">
+                        <thead>
+                            <tr>
+                                <th>Coverage Level</th>
+                                <th>Major Impairment</th>
+                                <th>Accidental Death</th>
+                                <th>Monthly Premium</th>
+                                <th>Select</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Up to $50,000</td>
+                                <td>Up to $50,000</td>
+                                <td>$10,000</td>
+                                <td>$2.50</td>
+                                <td><input type="radio" name="childAccident" value="50000"></td>
+                            </tr>
+                            <tr>
+                                <td>Up to $100,000</td>
+                                <td>Up to $100,000</td>
+                                <td>$20,000</td>
+                                <td>$5.00</td>
+                                <td><input type="radio" name="childAccident" value="100000"></td>
+                            </tr>
+                            <tr>
+                                <td>Up to $150,000</td>
+                                <td>Up to $150,000</td>
+                                <td>$30,000</td>
+                                <td>$7.50</td>
+                                <td><input type="radio" name="childAccident" value="150000"></td>
+                            </tr>
+                            <tr>
+                                <td>Up to $200,000</td>
+                                <td>Up to $200,000</td>
+                                <td>$40,000</td>
+                                <td>$10.00</td>
+                                <td><input type="radio" name="childAccident" value="200000"></td>
+                            </tr>
+                            <tr>
+                                <td>Up to $250,000</td>
+                                <td>Up to $250,000</td>
+                                <td>$50,000</td>
+                                <td>$12.00</td>
+                                <td><input type="radio" name="childAccident" value="250000"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Existing Coverage Section -->
+                <h3 style="color: #667eea; margin: 30px 0 20px 0;">Existing Coverage</h3>
+                
+                <h4>Applicant: Existing Coverage</h4>
+                <div class="form-group">
+                    <label>Do you have any pending or existing life insurance coverage with Manulife or any other company?</label>
+                    <div class="checkbox-group">
+                        <input type="radio" id="existingCoverageYes" name="existingCoverage" value="yes">
+                        <label for="existingCoverageYes">Yes</label>
+                        <input type="radio" id="existingCoverageNo" name="existingCoverage" value="no">
+                        <label for="existingCoverageNo">No</label>
+                    </div>
+                </div>
+
+                <div id="existingCoverageDetails" style="display: none;">
+                    <div class="table-container">
+                        <table class="insurance-table">
+                            <thead>
+                                <tr>
+                                    <th>Insurance Company Name</th>
+                                    <th>Personal or Business</th>
+                                    <th>Coverage Amount</th>
+                                    <th>Replace Coverage?</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><input type="text" placeholder="Company name"></td>
+                                    <td>
+                                        <select>
+                                            <option value="">Select</option>
+                                            <option value="personal">Personal</option>
+                                            <option value="business">Business</option>
+                                        </select>
+                                    </td>
+                                    <td><input type="number" placeholder="$0"></td>
+                                    <td>
+                                        <select>
+                                            <option value="">Select</option>
+                                            <option value="yes">Yes</option>
+                                            <option value="no">No</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" placeholder="Company name"></td>
+                                    <td>
+                                        <select>
+                                            <option value="">Select</option>
+                                            <option value="personal">Personal</option>
+                                            <option value="business">Business</option>
+                                        </select>
+                                    </td>
+                                    <td><input type="number" placeholder="$0"></td>
+                                    <td>
+                                        <select>
+                                            <option value="">Select</option>
+                                            <option value="yes">Yes</option>
+                                            <option value="no">No</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p><strong>Note:</strong> If you intend to replace coverage, do not cancel your existing coverage until you receive and review your new insurance contract.</p>
+                </div>
+
+                <h4>Spouse: Existing Coverage</h4>
+                <div class="form-group">
+                    <label>Do you have any pending or existing life insurance coverage with Manulife or any other company?</label>
+                    <div class="checkbox-group">
+                        <input type="radio" id="spouseExistingCoverageYes" name="spouseExistingCoverage" value="yes">
+                        <label for="spouseExistingCoverageYes">Yes</label>
+                        <input type="radio" id="spouseExistingCoverageNo" name="spouseExistingCoverage" value="no">
+                        <label for="spouseExistingCoverageNo">No</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 3: Beneficiary Information -->
+            <div class="section hidden" id="section3">
+                <div class="section-title">
+                    👥 Section 3: Beneficiary Information
+                </div>
+
+                <h3 style="color: #667eea;">Applicant Beneficiary(ies):</h3>
+                <p>I hereby designate the individual(s) named as beneficiary(ies) on this application to receive any death benefit payable with respect to the coverage applied for. If no beneficiary is designated, benefits will be payable to the Estate.</p>
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Beneficiary 1 - Last Name:</label>
+                        <input type="text" id="beneficiary1LastName" placeholder="Last name">
+                    </div>
+                    <div class="form-group">
+                        <label>Beneficiary 1 - First Name:</label>
+                        <input type="text" id="beneficiary1FirstName" placeholder="First name">
+                    </div>
+                    <div class="form-group">
+                        <label>Relationship to you:</label>
+                        <input type="text" id="beneficiary1Relationship" placeholder="e.g., Spouse, Child">
+                    </div>
+                    <div class="form-group">
+                        <label>% of Benefit:</label>
+                        <input type="number" id="beneficiary1Percentage" min="0" max="100" placeholder="100">
+                    </div>
+                </div>
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Beneficiary 2 - Last Name:</label>
+                        <input type="text" id="beneficiary2LastName" placeholder="Last name">
+                    </div>
+                    <div class="form-group">
+                        <label>Beneficiary 2 - First Name:</label>
+                        <input type="text" id="beneficiary2FirstName" placeholder="First name">
+                    </div>
+                    <div class="form-group">
+                        <label>Relationship to you:</label>
+                        <input type="text" id="beneficiary2Relationship" placeholder="e.g., Spouse, Child">
+                    </div>
+                    <div class="form-group">
+                        <label>% of Benefit:</label>
+                        <input type="number" id="beneficiary2Percentage" min="0" max="100" placeholder="0">
+                    </div>
+                </div>
+
+                <h4 style="color: #667eea; margin-top: 30px;">Trustee (if beneficiary is a minor):</h4>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Trustee - Last Name:</label>
+                        <input type="text" id="trusteeLastName" placeholder="Last name">
+                    </div>
+                    <div class="form-group">
+                        <label>Trustee - First Name:</label>
+                        <input type="text" id="trusteeFirstName" placeholder="First name">
+                    </div>
+                    <div class="form-group">
+                        <label>Relationship to beneficiary:</label>
+                        <input type="text" id="trusteeRelationship" placeholder="e.g., Parent, Guardian">
+                    </div>
+                    <div class="form-group">
+                        <label>% of Benefit:</label>
+                        <input type="number" id="trusteePercentage" min="0" max="100" placeholder="0">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="quebecRevocable">
+                        <label for="quebecRevocable">For Quebec residents only: I hereby declare and stipulate that the beneficiary designation made in this form is revocable.</label>
+                    </div>
+                </div>
+
+                <h3 style="color: #667eea; margin-top: 40px;">Spouse Beneficiary(ies):</h3>
+                <p>In accordance with the Group Policy, the Applicant is automatically the beneficiary on any Spouse Term Life or Accidental Death Coverage, unless the Applicant designates a beneficiary to receive the proceeds.</p>
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Spouse Beneficiary 1 - Last Name:</label>
+                        <input type="text" id="spouseBeneficiary1LastName" placeholder="Last name">
+                    </div>
+                    <div class="form-group">
+                        <label>Spouse Beneficiary 1 - First Name:</label>
+                        <input type="text" id="spouseBeneficiary1FirstName" placeholder="First name">
+                    </div>
+                    <div class="form-group">
+                        <label>Relationship to applicant:</label>
+                        <input type="text" id="spouseBeneficiary1Relationship" placeholder="e.g., Child, Parent">
+                    </div>
+                    <div class="form-group">
+                        <label>% of Benefit:</label>
+                        <input type="number" id="spouseBeneficiary1Percentage" min="0" max="100" placeholder="100">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 4: Financial Information -->
+            <div class="section hidden" id="section4">
+                <div class="section-title">
+                    💼 Section 4: Financial Information
+                </div>
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Applicant - Annual net earned income (after expenses but before taxes):</label>
+                        <input type="number" id="applicantIncome" placeholder="$0" min="0">
+                    </div>
+                    <div class="form-group">
+                        <label>Spouse - Annual net earned income (after expenses but before taxes):</label>
+                        <input type="number" id="spouseIncome" placeholder="$0" min="0">
+                    </div>
+                    <div class="form-group">
+                        <label>Combined net worth (assets minus liabilities):</label>
+                        <input type="number" id="combinedNetWorth" placeholder="$0" min="0">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 5: Personal Information -->
+            <div class="section hidden" id="section5">
+                <div class="section-title">
+                    📋 Section 5: Your Personal Information
+                </div>
+
+                <p><em>Please ensure all questions are answered and details provided for all individuals applying for coverage.</em></p>
+
+                <div class="medical-questions">
+                    <h4>Personal Information Questions</h4>
+                    
+                    <div class="question-item">
+                        <strong>1. Ever applied for any insurance that was declined, modified or rated?</strong>
+                        <div class="yes-no-group">
+                            <label><input type="radio" name="q1_applicant" value="yes"> Yes</label>
+                            <label><input type="radio" name="q1_applicant" value="no"> No</label>
+                            <span style="margin-left: 20px;">Spouse:</span>
+                            <label><input type="radio" name="q1_spouse" value="yes"> Yes</label>
+                            <label><input type="radio" name="q1_spouse" value="no"> No</label>
+                        </div>
+                        <textarea placeholder="If yes, give details including date, name of company and reason" rows="2"></textarea>
+                    </div>
+
+                    <div class="question-item">
+                        <strong>2a. In the past 5 years, been charged with or convicted of careless or dangerous driving or had your licence suspended or revoked?</strong>
+                        <div class="yes-no-group">
+                            <label><input type="radio" name="q2a_applicant" value="yes"> Yes</label>
+                            <label><input type="radio" name="q2a_applicant" value="no"> No</label>
+                            <span style="margin-left: 20px;">Spouse:</span>
+                            <label><input type="radio" name="q2a_spouse" value="yes"> Yes</label>
+                            <label><input type="radio" name="q2a_spouse" value="no"> No</label>
+                        </div>
+                        <textarea placeholder="If yes, provide details including number of charges and convictions and date of last conviction" rows="2"></textarea>
+                    </div>
+
+                    <div class="question-item">
+                        <strong>2b. Within the past 2 years, been charged with or convicted of 2 or more moving or traffic violations?</strong>
+                        <div class="yes-no-group">
+                            <label><input type="radio" name="q2b_applicant" value="yes"> Yes</label>
+                            <label><input type="radio" name="q2b_applicant" value="no"> No</label>
+                            <span style="margin-left: 20px;">Spouse:</span>
+                            <label><input type="radio" name="q2b_spouse" value="yes"> Yes</label>
+                            <label><input type="radio" name="q2b_spouse" value="no"> No</label>
+                        </div>
+                        <textarea placeholder="If yes, provide full details: nature of offence(s), date(s), driver's licence number and licensing province" rows="2"></textarea>
+                    </div>
+
+                    <div class="question-item">
+                        <strong>3. Any intention of piloting an aircraft or participating in scuba diving, parachuting, hang gliding, motor vehicle racing, climbing or any other hazardous activity?</strong>
+                        <div class="yes-no-group">
+                            <label><input type="radio" name="q3_applicant" value="yes"> Yes</label>
+                            <label><input type="radio" name="q3_applicant" value="no"> No</label>
+                            <span style="margin-left: 20px;">Spouse:</span>
+                            <label><input type="radio" name="q3_spouse" value="yes"> Yes</label>
+                            <label><input type="radio" name="q3_spouse" value="no"> No</label>
+                        </div>
+                        <textarea placeholder="If yes, give details including type of activity and date(s)" rows="2"></textarea>
+                    </div>
+
+                    <div class="question-item">
+                        <strong>4a. Within the next 12 months: Any expectation to travel outside Canada and the United States of America?</strong>
+                        <div class="yes-no-group">
+                            <label><input type="radio" name="q4a_applicant" value="yes"> Yes</label>
+                            <label><input type="radio" name="q4a_applicant" value="no"> No</label>
+                            <span style="margin-left: 20px;">Spouse:</span>
+                            <label><input type="radio" name="q4a_spouse" value="yes"> Yes</label>
+                            <label><input type="radio" name="q4a_spouse" value="no"> No</label>
+                        </div>
+                        <textarea placeholder="If yes, give details including where, when, why and for how long" rows="2"></textarea>
+                    </div>
+
+                    <div class="question-item">
+                        <strong>4b. Any expectation to change your country of residence?</strong>
+                        <div class="yes-no-group">
+                            <label><input type="radio" name="q4b_applicant" value="yes"> Yes</label>
+                            <label><input type="radio" name="q4b_applicant" value="no"> No</label>
+                            <span style="margin-left: 20px;">Spouse:</span>
+                            <label><input type="radio" name="q4b_spouse" value="yes"> Yes</label>
+                            <label><input type="radio" name="q4b_spouse" value="no"> No</label>
+                        </div>
+                        <textarea placeholder="If yes, provide details including where you intend to move, when, why and if your occupation is changing" rows="2"></textarea>
+                    </div>
+
+                    <div class="question-item">
+                        <strong>5a. Within the past 5 years: Used any drugs other than for medical purposes; used marijuana; or have you been advised, treated or counselled for alcohol or drug abuse?</strong>
+                        <div class="yes-no-group">
+                            <label><input type="radio" name="q5a_applicant" value="yes"> Yes</label>
+                            <label><input type="radio" name="q5a_applicant" value="no"> No</label>
+                            <span style="margin-left: 20px;">Spouse:</span>
+                            <label><input type="radio" name="q5a_spouse" value="yes"> Yes</label>
+                            <label><input type="radio" name="q5a_spouse" value="no"> No</label>
+                        </div>
+                        <textarea placeholder="If yes, give details including drug(s) used, alcohol type(s), daily consumption and date(s) last used" rows="2"></textarea>
+                    </div>
+
+                    <div class="question-item">
+                        <strong>5b. Been convicted of a criminal offence or are you currently charged with one?</strong>
+                        <div class="yes-no-group">
+                            <label><input type="radio" name="q5b_applicant" value="yes"> Yes</label>
+                            <label><input type="radio" name="q5b_applicant" value="no"> No</label>
+                            <span style="margin-left: 20px;">Spouse:</span>
+                            <label><input type="radio" name="q5b_spouse" value="yes"> Yes</label>
+                            <label><input type="radio" name="q5b_spouse" value="no"> No</label>
+                        </div>
+                        <textarea placeholder="If yes, please provide details" rows="2"></textarea>
+                    </div>
+
+                    <div class="question-item">
+                        <strong>5c. Declared, or are you currently contemplating personal or business bankruptcy?</strong>
+                        <div class="yes-no-group">
+                            <label><input type="radio" name="q5c_applicant" value="yes"> Yes</label>
+                            <label><input type="radio" name="q5c_applicant" value="no"> No</label>
+                            <span style="margin-left: 20px;">Spouse:</span>
+                            <label><input type="radio" name="q5c_spouse" value="yes"> Yes</label>
+                            <label><input type="radio" name="q5c_spouse" value="no"> No</label>
+                        </div>
+                        <textarea placeholder="If yes, provide details including date of discharge" rows="2"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 6: Health Declaration -->
+            <div class="section hidden" id="section6">
+                <div class="section-title">
+                    🏥 Section 6: Health Declaration
+                </div>
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Applicant's Name:</label>
+                        <input type="text" id="healthApplicantName" placeholder="Full name">
+                    </div>
+                    <div class="form-group">
+                        <label>Applicant's Phone Number:</label>
+                        <input type="tel" id="healthApplicantPhone" placeholder="(555) 123-4567">
+                    </div>
+                </div>
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Physician's Name:</label>
+                        <input type="text" id="physicianName" placeholder="Dr. Name">
+                    </div>
+                    <div class="form-group">
+                        <label>Physician's Phone Number:</label>
+                        <input type="tel" id="physicianPhone" placeholder="(555) 123-4567">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Physician's Address:</label>
+                    <textarea id="physicianAddress" rows="2" placeholder="Enter physician's full address"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Date and reason of last consultation:</label>
+                    <textarea id="lastConsultation" rows="2" placeholder="Date and reason for last visit"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Result of last consultation, and any treatment or medication prescribed:</label>
+                    <textarea id="consultationResult" rows="3" placeholder="Results, treatment, and medications"></textarea>
+                </div>
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Height (include ft & in or cm):</label>
+                        <input type="text" id="applicantHeight" placeholder="5'10&quot; or 178 cm">
+                    </div>
+                    <div class="form-group">
+                        <label>Weight (include lb or kg):</label>
+                        <input type="text" id="applicantWeight" placeholder="170 lbs or 77 kg">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Has your weight changed by more than 10 lbs (4.5 kg) in the past 12 months?</label>
+                    <div class="checkbox-group">
+                        <input type="radio" id="weightChangeYes" name="weightChange" value="yes">
+                        <label for="weightChangeYes">Yes</label>
+                        <input type="radio" id="weightChangeNo" name="weightChange" value="no">
+                        <label for="weightChangeNo">No</label>
+                    </div>
+                </div>
+
+                <div id="weightChangeDetails" style="display: none;">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Weight change type:</label>
+                            <div class="checkbox-group">
+                                <input type="radio" id="weightGained" name="weightChangeType" value="gained">
+                                <label for="weightGained">Gained</label>
+                                <input type="radio" id="weightLost" name="weightChangeType" value="lost">
+                                <label for="weightLost">Lost</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Amount (include lb or kg):</label>
+                            <input type="text" id="weightChangeAmount" placeholder="15 lbs or 7 kg">
+                        </div>
+                        <div class="form-group">
+                            <label>Reason for change:</label>
+                            <input type="text" id="weightChangeReason" placeholder="Diet, exercise, medical condition, etc.">
+                        </div>
+                    </div>
+                </div>
+
+                <h3 style="color: #667eea; margin-top: 30px;">If applying for Spouse</h3>
+                
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Spouse's Physician's Name:</label>
+                        <input type="text" id="spousePhysicianName" placeholder="Dr. Name">
+                    </div>
+                    <div class="form-group">
+                        <label>Spouse's Physician's Phone:</label>
+                        <input type="tel" id="spousePhysicianPhone" placeholder="(555) 123-4567">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Date and reason of last consultation:</label>
+                    <textarea id="spouseLastConsultation" rows="2" placeholder="Date and reason for last visit"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Result of last consultation, and any treatment or medication prescribed:</label>
+                    <textarea id="spouseConsultationResult" rows="3" placeholder="Results, treatment, and medications"></textarea>
+                </div>
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Spouse's Height (include ft & in or cm):</label>
+                        <input type="text" id="spouseHeight" placeholder="5'6&quot; or 168 cm">
+                    </div>
+                    <div class="form-group">
+                        <label>Spouse's Weight (include lb or kg):</label>
+                        <input type="text" id="spouseWeight" placeholder="140 lbs or 64 kg">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Has spouse's weight changed by more than 10 lbs (4.5 kg) in the past 12 months?</label>
+                    <div class="checkbox-group">
+                        <input type="radio" id="spouseWeightChangeYes" name="spouseWeightChange" value="yes">
+                        <label for="spouseWeightChangeYes">Yes</label>
+                        <input type="radio" id="spouseWeightChangeNo" name="spouseWeightChange" value="no">
+                        <label for="spouseWeightChangeNo">No</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 7: Medical Information -->
+            <div class="section hidden" id="section7">
+                <div class="section-title">
+                    🩺 Section 7: Your Medical Information
+                </div>
+
+                <div style="background: #fef3c7; border: 2px solid #f59e0b; border-radius: 10px; padding: 20px; margin-bottom: 30px;">
+                    <p><strong>IMPORTANT:</strong> Any reference to testing, tests, test results or investigations in this section excludes genetic tests. Genetic test means a test that analyzes DNA, RNA or chromosomes for purposes such as the prediction of disease or vertical transmission risks, or monitoring, diagnosis or prognosis.</p>
+                </div>
+
+                <div class="medical-questions">
+                    <h4>Medical History Questions</h4>
+                    
+                    <div class="question-item">
+                        <strong>1a. Have you ever had any indication of or been treated for conditions involving your heart or blood vessels?</strong>
+                        <p><em>(such as: angina, blood clots, heart disease, bypass or angioplasty, cerebrovascular disease (CVA), stroke or transient ischemic attack (TIA), chest pains or shortness of breath, heart attack, heart murmur, palpitations, high blood pressure, elevated cholesterol, poor circulation, swollen ankles, or other)</em></p>
+                        <div class="yes-no-group">
+                            <label><input type="radio" name="med1a_applicant" value="yes"> Yes</label>
+                            <label><input type="radio" name="med1a_applicant" value="no"> No</label>
+                            <span style="margin-left: 20px;">Spouse:</span>
+                            <label><input type="radio" name="med1a_spouse" value="yes"> Yes</label>
+                            <label><input type="radio" name="med1a_spouse" value="no"> No</label>
+                        </div>
+                    </div>
+
+                    <div class="question-item">
+                        <strong>1b. Your nose, throat or lungs?</strong>
+                        <p><em>(such as: asthma, chronic obstructive pulmonary disease (COPD), chronic or recurrent bronchitis, emphysema, sarcoidosis, sleep apnea, tuberculosis, or other)</em></p>
+                        <div class="yes-no-group">
+                            <label><input type="radio" name="med1b_applicant" value="yes"> Yes</label>
+                            <label><input type="radio" name="med1b_applicant" value="no"> No</label>
+                            <span style="margin-left: 20px;">Spouse:</span>
+                            <label><input type="radio" name="med1b_spouse" value="yes"> Yes</label>
+                            <label><input type="radio" name="med1b_spouse" value="no"> No</label>
+                        </div>
+                    </div>
+
+                    <div class="question-item">
+                        <strong>1c. Your abdominal organs?</strong>
+                        <p><em>(such as: cirrhosis, colitis, Crohn's disease, diverticulitis, gastrointestinal bleeding, gastrointestinal reflux, hepatitis (including hepatitis carrier state), irritable bowel syndrome, liver disease, pancreatitis, ulcer, or other)</em></p>
+                        <div class="yes-no-group">
+                            <label><input type="radio" name="med1c_applicant" value="yes"> Yes</label>
+                            <label><input type="radio" name="med1c_applicant" value="no"> No</label>
+                            <span style="margin-left: 20px;">Spouse:</span>
+                            <label><input type="radio" name="med1c_spouse" value="yes"> Yes</label>
+                            <label><input type="radio" name="med1c_spouse" value="no"> No</label>
+                        </div>
+                    </div>
+
+                    <div class="question-item">
+                        <strong>1d. Your kidneys, bladder or reproductive organs?</strong>
+                        <p><em>(such as: abnormal pap smear, bladder infection, kidney stone, nephritis, fibroids, polycystic kidney disease, other kidney or bladder disorders, other reproductive disorder or sexually transmitted disease, or other)</em></p>
+                        <div class="yes-no-group">
+                            <label><input type="radio" name="med1d_applicant" value="yes"> Yes</label>
+                            <label><input type="radio" name="med1d_applicant" value="no"> No</label>
+                            <span style="margin-left: 20px;">Spouse:</span>
+                            <label><input type="radio" name="med1d_spouse" value="yes"> Yes</label>
+                            <label><input type="radio" name="med1d_spouse" value="no"> No</label>
+                        </div>
+                    </div>
+
+                    <div class="question-item">
+                        <strong>1e. Your breast?</strong>
+                        <p><em>(such as: abnormal mammogram findings or biopsy, cysts, lumps or other physical changes, or other)</em></p>
+                        <div class="yes-no-group">
+                            <label><input type="radio" name="med1e_applicant" value="yes"> Yes</label>
+                            <label><input type="radio" name="med1e_applicant" value="no"> No</label>
+                            <span style="margin-left: 20px;">Spouse:</span>
+                            <label><input type="radio" name="med1e_spouse" value="yes"> Yes</label>
+                            <label><input type="radio" name="med1e_spouse" value="no"> No</label>
+                        </div>
+                    </div>
+
+                    <div class="question-item">
+                        <strong>1f. Your brain or nervous system?</strong>
+                        <p><em>(such as: dizziness, Parkinson's disease, Alzheimer's disease, multiple sclerosis, numbness/tingling, fainting or syncope, seizures, tremor, vertigo, paralysis, or other)</em></p>
+                        <div class="yes-no-group">
+                            <label><input type="radio" name="med1f_applicant" value="yes"> Yes</label>
+                            <label><input type="radio" name="med1f_applicant" value="no"> No</label>
+                            <span style="margin-left: 20px;">Spouse:</span>
+                            <label><input type="radio" name="med1f_spouse" value="yes"> Yes</label>
+                            <label><input type="radio" name="med1f_spouse" value="no"> No</label>
+                        </div>
+                    </div>
+
+                    <div class="question-item">
+                        <strong>1g. Your eyes or ears?</strong>
+                        <p><em>(such as: blindness, blurred vision, deafness, glaucoma, impaired hearing, impaired sight, labyrinthitis, optic neuritis, tinnitus, or other)</em></p>
+                        <div class="yes-no-group">
+                            <label><input type="radio" name="med1g_applicant" value="yes"> Yes</label>
+                            <label><input type="radio" name="med1g_applicant" value="no"> No</label>
+                            <span style="margin-left: 20px;">Spouse:</span>
+                            <label><input type="radio" name="med1g_spouse" value="yes"> Yes</label>
+                            <label><input type="radio" name="med1g_spouse" value="no"> No</label>
+                        </div>
+                    </div>
+
+                    <div class="question-item">
+                        <strong>1h. Your mental health?</strong>
+                        <p><em>(such as: depression, anxiety, stress, burnout, attempted suicide, suicide ideation, any emotional or eating disorder, or other)</em></p>
+                        <div class="yes-no-group">
+                            <label><input type="radio" name="med1h_applicant" value="yes"> Yes</label>
+                            <label><input type="radio" name="med1h_applicant" value="no"> No</label>
+                            <span style="margin-left: 20px;">Spouse:</span>
+                            <label><input type="radio" name="med1h_spouse" value="yes"> Yes</label>
+                            <label><input type="radio" name="med1h_spouse" value="no"> No</label>
+                        </div>
+                    </div>
+
+                    <div class="question-item">
+                        <strong>1i. Your blood or glands?</strong>
+                        <p><em>(such as: diabetes (including gestational diabetes and impaired glucose), abnormal blood sugar, anemia, bleeding tendency, gout, hemophilia, lymph gland disorder, thyroid disorder or other endocrine disorders, or other)</em></p>
+                        <div class="yes-no-group">
+                            <label><input type="radio" name="med1i_applicant" value="yes"> Yes</label>
+                            <label><input type="radio" name="med1i_applicant" value="no"> No</label>
+                            <span style="margin-left: 20px;">Spouse:</span>
+                            <label><input type="radio" name="med1i_spouse" value="yes"> Yes</label>
+                            <label><input type="radio" name="med1i_spouse" value="no"> No</label>
+                        </div>
+                    </div>
+
+                    <div class="question-item">
+                        <strong>1j. Your muscles, bones or joints?</strong>
+                        <p><em>(such as: chronic fatigue, chronic pain, fibromyalgia, muscular dystrophy, rheumatoid arthritis or osteoarthritis, paralysis or weakness, any injury or disorder of the muscles, bones, joints or spine causing any physical limitations or restrictions, or other)</em></p>
+                        <div class="yes-no-group">
+                            <label><input type="radio" name="med1j_applicant" value="yes"> Yes</label>
+                            <label><input type="radio" name="med1j_applicant" value="no"> No</label>
+                            <span style="margin-left: 20px;">Spouse:</span>
+                            <label><input type="radio" name="med1j_spouse" value="yes"> Yes</label>
+                            <label><input type="radio" name="med1j_spouse" value="no"> No</label>
+                        </div>
+                    </div>
+
+                    <div class="question-item">
+                        <strong>1k. Your skin?</strong>
+                        <p><em>(such as: basal cell carcinoma, dysplastic nevus or dysplastic nevus syndrome, lesions, freckles or moles that have changed in size or colour or have bled, psoriasis, dermatitis, nevus or nevi, or other)</em></p>
+                        <div class="yes-no-group">
+                            <label><input type="radio" name="med1k_applicant" value="yes"> Yes</label>
+                            <label><input type="radio" name="med1k_applicant" value="no"> No</label>
+                            <span style="margin-left: 20px;">Spouse:</span>
+                            <label><input type="radio" name="med1k_spouse" value="yes"> Yes</label>
+                            <label><input type="radio" name="med1k_spouse" value="no"> No</label>
+                        </div>
+                    </div>
+
+                    <div class="question-item">
+                        <strong>1l. Your immune system?</strong>
+                        <p><em>(such as: HIV, AIDS, any generalized enlargement of your lymph glands, any test results indicating possible exposure to HIV or AIDS virus, or other)</em></p>
+                        <div class="yes-no-group">
+                            <label><input type="radio" name="med1l_applicant" value="yes"> Yes</label>
+                            <label><input type="radio" name="med1l_applicant" value="no"> No</label>
+                            <span style="margin-left: 20px;">Spouse:</span>
+                            <label><input type="radio" name="med1l_spouse" value="yes"> Yes</label>
+                            <label><input type="radio" name="med1l_spouse" value="no"> No</label>
+                        </div>
+                    </div>
+
+                    <div class="question-item">
+                        <strong>1m. Cancer, cysts, lumps, polyps, or tumour?</strong>
+                        <div class="yes-no-group">
+                            <label><input type="radio" name="med1m_applicant" value="yes"> Yes</label>
+                            <label><input type="radio" name="med1m_applicant" value="no"> No</label>
+                            <span style="margin-left: 20px;">Spouse:</span>
+                            <label><input type="radio" name="med1m_spouse" value="yes"> Yes</label>
+                            <label><input type="radio" name="med1m_spouse" value="no"> No</label>
+                        </div>
+                    </div>
+
+                    <div class="question-item">
+                        <strong>1n. Other illness or disorder not mentioned above, or are you aware of any symptoms or complaints for which you have not consulted a doctor or received treatment?</strong>
+                        <div class="yes-no-group">
+                            <label><input type="radio" name="med1n_applicant" value="yes"> Yes</label>
+                            <label><input type="radio" name="med1n_applicant" value="no"> No</label>
+                            <span style="margin-left: 20px;">Spouse:</span>
+                            <label><input type="radio" name="med1n_spouse" value="yes"> Yes</label>
+                            <label><input type="radio" name="med1n_spouse" value="no"> No</label>
+                        </div>
+                    </div>
+
+                    <div class="question-item">
+                        <strong>2. If female, are you currently pregnant?</strong>
+                        <div class="yes-no-group">
+                            <label><input type="radio" name="pregnant_applicant" value="yes"> Yes</label>
+                            <label><input type="radio" name="pregnant_applicant" value="no"> No</label>
+                            <span style="margin-left: 20px;">Spouse:</span>
+                            <label><input type="radio" name="pregnant_spouse" value="yes"> Yes</label>
+                            <label><input type="radio" name="pregnant_spouse" value="no"> No</label>
+                        </div>
+                        <div class="form-grid" style="margin-top: 15px;">
+                            <div class="form-group">
+                                <label>If yes, due date:</label>
+                                <input type="date" id="dueDate">
+                            </div>
+                            <div class="form-group">
+                                <label>Obstetrician/Gynecologist name and address:</label>
+                                <textarea rows="2" placeholder="Doctor's name and address"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Pre-pregnancy weight:</label>
+                                <input type="text" placeholder="lbs/kg">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Have there been any complications with your pregnancy?</label>
+                            <div class="checkbox-group">
+                                <input type="radio" name="pregnancyComplications" value="yes">
+                                <label>Yes</label>
+                                <input type="radio" name="pregnancyComplications" value="no">
+                                <label>No</label>
+                            </div>
+                            <textarea placeholder="If yes, provide details" rows="2"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="question-item">
+                        <strong>3a. Within the past 2 years, have you had an abnormal mammogram, PSA or any other test or investigation?</strong>
+                        <div class="yes-no-group">
+                            <label><input type="radio" name="med3a_applicant" value="yes"> Yes</label>
+                            <label><input type="radio" name="med3a_applicant" value="no"> No</label>
+                            <span style="margin-left: 20px;">Spouse:</span>
+                            <label><input type="radio" name="med3a_spouse" value="yes"> Yes</label>
+                            <label><input type="radio" name="med3a_spouse" value="no"> No</label>
+                        </div>
+                    </div>
+
+                    <div class="question-item">
+                        <strong>3b. Consulted a specialist or been prescribed medication, other treatment or counselling for any disorder other than minor ailments (colds, flu, etc.)?</strong>
+                        <div class="yes-no-group">
+                            <label><input type="radio" name="med3b_applicant" value="yes"> Yes</label>
+                            <label><input type="radio" name="med3b_applicant" value="no"> No</label>
+                            <span style="margin-left: 20px;">Spouse:</span>
+                            <label><input type="radio" name="med3b_spouse" value="yes"> Yes</label>
+                            <label><input type="radio" name="med3b_spouse" value="no"> No</label>
+                        </div>
+                    </div>
+
+                    <div class="question-item">
+                        <strong>3c. Been advised to undergo further investigation, see another doctor or have surgery?</strong>
+                        <div class="yes-no-group">
+                            <label><input type="radio" name="med3c_applicant" value="yes"> Yes</label>
+                            <label><input type="radio" name="med3c_applicant" value="no"> No</label>
+                            <span style="margin-left: 20px;">Spouse:</span>
+                            <label><input type="radio" name="med3c_spouse" value="yes"> Yes</label>
+                            <label><input type="radio" name="med3c_spouse" value="no"> No</label>
+                        </div>
+                    </div>
+
+                    <div class="question-item">
+                        <strong>3d. Been currently unable to perform any of the usual duties of your regular occupation due to injury or sickness?</strong>
+                        <div class="yes-no-group">
+                            <label><input type="radio" name="med3d_applicant" value="yes"> Yes</label>
+                            <label><input type="radio" name="med3d_applicant" value="no"> No</label>
+                            <span style="margin-left: 20px;">Spouse:</span>
+                            <label><input type="radio" name="med3d_spouse" value="yes"> Yes</label>
+                            <label><input type="radio" name="med3d_spouse" value="no"> No</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>If you answered yes to any part of questions 1, 2 and 3 above, please give details below:</label>
+                    <div class="table-container">
+                        <table class="insurance-table">
+                            <thead>
+                                <tr>
+                                    <th>Question No.</th>
+                                    <th>Name of Applicant</th>
+                                    <th>Nature of Disorder</th>
+                                    <th>Date & Duration</th>
+                                    <th>Treatment & Current Status</th>
+                                    <th>Attending Physician or Hospital</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><input type="text" placeholder="1a, 2, etc."></td>
+                                    <td><input type="text" placeholder="Applicant/Spouse"></td>
+                                    <td><input type="text" placeholder="Condition/disorder"></td>
+                                    <td><input type="text" placeholder="When & how long"></td>
+                                    <td><input type="text" placeholder="Treatment details"></td>
+                                    <td><input type="text" placeholder="Doctor/Hospital name"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" placeholder="1a, 2, etc."></td>
+                                    <td><input type="text" placeholder="Applicant/Spouse"></td>
+                                    <td><input type="text" placeholder="Condition/disorder"></td>
+                                    <td><input type="text" placeholder="When & how long"></td>
+                                    <td><input type="text" placeholder="Treatment details"></td>
+                                    <td><input type="text" placeholder="Doctor/Hospital name"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" placeholder="1a, 2, etc."></td>
+                                    <td><input type="text" placeholder="Applicant/Spouse"></td>
+                                    <td><input type="text" placeholder="Condition/disorder"></td>
+                                    <td><input type="text" placeholder="When & how long"></td>
+                                    <td><input type="text" placeholder="Treatment details"></td>
+                                    <td><input type="text" placeholder="Doctor/Hospital name"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Family Medical History -->
+                <h3 style="color: #667eea; margin-top: 40px;">Family Medical History</h3>
+                
+                <div class="question-item">
+                    <strong>4a. Have any of your parents or siblings (brothers or sisters) been diagnosed prior to age 60 with heart disease, stroke or cancer?</strong>
+                    <div class="yes-no-group">
+                        <label><input type="radio" name="family4a_applicant" value="yes"> Yes</label>
+                        <label><input type="radio" name="family4a_applicant" value="no"> No</label>
+                        <span style="margin-left: 20px;">Spouse:</span>
+                        <label><input type="radio" name="family4a_spouse" value="yes"> Yes</label>
+                        <label><input type="radio" name="family4a_spouse" value="no"> No</label>
+                    </div>
+                </div>
+
+                <div class="question-item">
+                    <strong>4b. Ever been diagnosed with Huntington's chorea, polycystic kidney disease or other kidney disease (excluding kidney stones), Parkinson's disease, multiple sclerosis, Alzheimer's disease, amyotrophic lateral sclerosis (also called ALS or Lou Gehrig's disease) or other motor neuron disease, diabetes, hepatitis or retinitis pigmentosa?</strong>
+                    <div class="yes-no-group">
+                        <label><input type="radio" name="family4b_applicant" value="yes"> Yes</label>
+                        <label><input type="radio" name="family4b_applicant" value="no"> No</label>
+                        <span style="margin-left: 20px;">Spouse:</span>
+                        <label><input type="radio" name="family4b_spouse" value="yes"> Yes</label>
+                        <label><input type="radio" name="family4b_spouse" value="no"> No</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>If you answered yes to 4a or 4b above, please complete the following:</label>
+                    <div class="table-container">
+                        <table class="insurance-table">
+                            <thead>
+                                <tr>
+                                    <th>Name of Applicant</th>
+                                    <th>Family Member</th>
+                                    <th>Condition (If cancer, specify type)</th>
+                                    <th>Age at Onset</th>
+                                    <th>Age at Death & Cause, if applicable</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><input type="text" placeholder="Applicant/Spouse"></td>
+                                    <td><input type="text" placeholder="Mother, Father, Brother, Sister"></td>
+                                    <td><input type="text" placeholder="Heart disease, cancer type, etc."></td>
+                                    <td><input type="number" placeholder="Age"></td>
+                                    <td><input type="text" placeholder="Age at death & cause"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" placeholder="Applicant/Spouse"></td>
+                                    <td><input type="text" placeholder="Mother, Father, Brother, Sister"></td>
+                                    <td><input type="text" placeholder="Heart disease, cancer type, etc."></td>
+                                    <td><input type="number" placeholder="Age"></td>
+                                    <td><input type="text" placeholder="Age at death & cause"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" placeholder="Applicant/Spouse"></td>
+                                    <td><input type="text" placeholder="Mother, Father, Brother, Sister"></td>
+                                    <td><input type="text" placeholder="Heart disease, cancer type, etc."></td>
+                                    <td><input type="number" placeholder="Age"></td>
+                                    <td><input type="text" placeholder="Age at death & cause"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Children's Insurance -->
+                <h3 style="color: #667eea; margin-top: 40px;">Children's Insurance (Complete if applying for insurance for your children)</h3>
+                
+                <div class="form-group">
+                    <label>If child's address is different from Applicant's, please provide:</label>
+                    <textarea rows="2" placeholder="Child's address if different"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Name and address of each child's physician:</label>
+                    <textarea rows="2" placeholder="Physician name and address"></textarea>
+                </div>
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Date of last consultation:</label>
+                        <input type="date" id="childLastConsultation">
+                    </div>
+                    <div class="form-group">
+                        <label>Reason for last consultation:</label>
+                        <input type="text" placeholder="Reason for visit">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Treatment, medication prescribed (if none, state "None"):</label>
+                    <textarea rows="2" placeholder="Treatment and medications or 'None'"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>In the past year, has any child lost more than 5 pounds (2.25 kg)?</label>
+                    <div class="checkbox-group">
+                        <input type="radio" id="childWeightLossYes" name="childWeightLoss" value="yes">
+                        <label for="childWeightLossYes">Yes</label>
+                        <input type="radio" id="childWeightLossNo" name="childWeightLoss" value="no">
+                        <label for="childWeightLossNo">No</label>
+                    </div>
+                </div>
+
+                <div class="form-group" id="childWeightLossDetails" style="display: none;">
+                    <label>If yes, provide name of child and reason for weight loss:</label>
+                    <textarea rows="2" placeholder="Child's name and reason for weight loss"></textarea>
+                </div>
+
+                <div class="table-container">
+                    <table class="insurance-table">
+                        <thead>
+                            <tr>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Sex</th>
+                                <th>Date of Birth</th>
+                                <th>Height (ft & in. or cm)</th>
+                                <th>Weight (lbs. or kg)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input type="text" placeholder="First name"></td>
+                                <td><input type="text" placeholder="Last name"></td>
+                                <td>
+                                    <select>
+                                        <option value="">Select</option>
+                                        <option value="M">M</option>
+                                        <option value="F">F</option>
+                                    </select>
+                                </td>
+                                <td><input type="date"></td>
+                                <td><input type="text" placeholder="5'2&quot; or 157cm"></td>
+                                <td><input type="text" placeholder="110 lbs or 50kg"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" placeholder="First name"></td>
+                                <td><input type="text" placeholder="Last name"></td>
+                                <td>
+                                    <select>
+                                        <option value="">Select</option>
+                                        <option value="M">M</option>
+                                        <option value="F">F</option>
+                                    </select>
+                                </td>
+                                <td><input type="date"></td>
+                                <td><input type="text" placeholder="5'2&quot; or 157cm"></td>
+                                <td><input type="text" placeholder="110 lbs or 50kg"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" placeholder="First name"></td>
+                                <td><input type="text" placeholder="Last name"></td>
+                                <td>
+                                    <select>
+                                        <option value="">Select</option>
+                                        <option value="M">M</option>
+                                        <option value="F">F</option>
+                                    </select>
+                                </td>
+                                <td><input type="date"></td>
+                                <td><input type="text" placeholder="5'2&quot; or 157cm"></td>
+                                <td><input type="text" placeholder="110 lbs or 50kg"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" placeholder="First name"></td>
+                                <td><input type="text" placeholder="Last name"></td>
+                                <td>
+                                    <select>
+                                        <option value="">Select</option>
+                                        <option value="M">M</option>
+                                        <option value="F">F</option>
+                                    </select>
+                                </td>
+                                <td><input type="date"></td>
+                                <td><input type="text" placeholder="5'2&quot; or 157cm"></td>
+                                <td><input type="text" placeholder="110 lbs or 50kg"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Section 8: Payment Information -->
+            <div class="section hidden" id="section8">
+                <div class="section-title">
+                    💳 Section 8: Payment Information
+                </div>
+
+                <div class="form-group">
+                    <label>Payment Method:</label>
+                    <div class="premium-option">
+                        <input type="radio" id="paymentPAD" name="paymentMethod" value="pad">
+                        <label for="paymentPAD"><strong>Monthly by pre-authorized debit</strong> – PAD (please enclose a sample cheque marked "VOID")</label>
+                    </div>
+                    <div class="premium-option">
+                        <input type="radio" id="paymentCheque" name="paymentMethod" value="cheque">
+                        <label for="paymentCheque"><strong>Annually by cheque</strong> (payable to Manulife)</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <p><em>To apply securely using your credit card, contact our licensed insurance advisors at <strong>1 866 219-4245</strong>.</em></p>
+                    <p><em>For your convenience, if you choose payment by pre-authorized debit or credit card, your future premium billings will automatically reflect the same payment method.</em></p>
+                </div>
+
+                <div id="padPaymentSection" style="display: none;">
+                    <h3 style="color: #667eea;">Section A: For pre-authorized debit (PAD) payment option</h3>
+                    
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Name of Account Holder:</label>
+                            <input type="text" id="accountHolderName" placeholder="Full name on account">
+                        </div>
+                        <div class="form-group">
+                            <label>Financial Institution:</label>
+                            <input type="text" id="financialInstitution" placeholder="Bank name">
+                        </div>
+                    </div>
+
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Address:</label>
+                            <input type="text" id="bankAddress" placeholder="Bank address">
+                        </div>
+                        <div class="form-group">
+                            <label>City/Town:</label>
+                            <input type="text" id="bankCity" placeholder="City/Town">
+                        </div>
+                    </div>
+
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Bank Account Number:</label>
+                            <input type="text" id="accountNumber" placeholder="Account number">
+                        </div>
+                        <div class="form-group">
+                            <label>Transit Number:</label>
+                            <input type="text" id="transitNumber" placeholder="Transit number">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Type of Account:</label>
+                        <div class="checkbox-group">
+                            <input type="radio" id="personalChequing" name="accountType" value="personalChequing">
+                            <label for="personalChequing">Personal Chequing</label>
+                            <input type="radio" id="chequingSavings" name="accountType" value="chequingSavings">
+                            <label for="chequingSavings">Chequing/Savings</label>
+                            <input type="radio" id="savings" name="accountType" value="savings">
+                            <label for="savings">Savings</label>
+                            <input type="radio" id="current" name="accountType" value="current">
+                            <label for="current">Current</label>
+                            <input type="radio" id="directDeposit" name="accountType" value="directDeposit">
+                            <label for="directDeposit">Direct Deposit Account</label>
+                            <input type="radio" id="otherAccount" name="accountType" value="other">
+                            <label for="otherAccount">Other</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Joint Accounts: Is this a joint account requiring only one signature?</label>
+                        <div class="checkbox-group">
+                            <input type="radio" id="jointAccountYes" name="jointAccount" value="yes">
+                            <label for="jointAccountYes">Yes</label>
+                            <input type="radio" id="jointAccountNo" name="jointAccount" value="no">
+                            <label for="jointAccountNo">No</label>
+                        </div>
+                        <p><em>If more than one signature is required on withdrawals issued against the account, both account holders must sign this authorization.</em></p>
+                    </div>
+
+                    <div style="background: #fef3c7; border: 2px solid #f59e0b; border-radius: 10px; padding: 20px; margin: 20px 0;">
+                        <h4 style="color: #92400e;">Payment authorization for pre-authorized debit (PAD) payment options</h4>
+                        <p style="font-size: 14px; line-height: 1.5;">I/We authorize Manulife to make monthly automatic withdrawals from my/our bank account on the day on which insurance premiums are due or after I/we sign this authorization. Withdrawals from my/our account may be for variable amounts, as they may change in accordance with my/our insurance contract and as required to administer my/our policy. I/We waive the right to receive 10 days notice of the amount and date of each automatic withdrawal from my/our account.</p>
+                    </div>
+
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Account Holder Signature:</label>
+                            <input type="text" id="accountHolderSignature" placeholder="Signature">
+                        </div>
+                        <div class="form-group">
+                            <label>Date:</label>
+                            <input type="date" id="padSignatureDate">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Second signature if joint account:</label>
+                        <input type="text" id="secondSignature" placeholder="Second signature">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Account holder address (if different than applicant):</label>
+                        <textarea id="accountHolderAddress" rows="2" placeholder="Address if different from applicant"></textarea>
+                    </div>
+                </div>
+
+                <div style="background: #f0f9ff; border: 2px solid #0ea5e9; border-radius: 10px; padding: 20px; margin: 30px 0;">
+                    <h4 style="color: #0c4a6e;">Contact Information</h4>
+                    <p><strong>For assistance or to speak to a licensed insurance advisor:</strong></p>
+                    <p>📞 Call us toll-free at <strong>1 866 219-4245</strong></p>
+                    <p>🕒 Monday to Friday, 8 a.m. to 8 p.m. ET</p>
+                    <p>📧 Email: <strong>am_info@manulife.com</strong></p>
+                    <p><strong>Send completed application with payment to:</strong></p>
+                    <p>📮 Manulife, P.O. Box 670, Stn Waterloo, Waterloo, ON N2J 4B8</p>
+                </div>
+            </div>
+
+            <div class="navigation">
+                <button class="btn btn-secondary" id="prevBtn" onclick="previousSection()">← Previous</button>
+                <div>
+                    <span id="sectionIndicator">Section 1 of 8</span>
+                </div>
+                <button class="btn" id="nextBtn" onclick="nextSection()">Next →</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentSection = 1;
+        const totalSections = 8;
+
+        // Show/hide sections
+        function showSection(sectionNumber) {
+            // Hide all sections
+            for (let i = 1; i <= totalSections; i++) {
+                document.getElementById(`section${i}`).classList.add('hidden');
+                document.querySelectorAll('.nav-btn')[i-1].classList.remove('active');
+            }
+            
+            // Show current section
+            document.getElementById(`section${sectionNumber}`).classList.remove('hidden');
+            document.getElementById(`section${sectionNumber}`).classList.add('fade-in');
+            document.querySelectorAll('.nav-btn')[sectionNumber-1].classList.add('active');
+            
+            currentSection = sectionNumber;
+            updateProgress();
+            updateNavigation();
+        }
+
+        function nextSection() {
+            if (currentSection < totalSections) {
+                showSection(currentSection + 1);
+            }
+        }
+
+        function previousSection() {
+            if (currentSection > 1) {
+                showSection(currentSection - 1);
+            }
+        }
+
+        function updateProgress() {
+            const progress = (currentSection / totalSections) * 100;
+            document.getElementById('progressFill').style.width = progress + '%';
+            document.getElementById('sectionIndicator').textContent = `Section ${currentSection} of ${totalSections}`;
+        }
+
+        function updateNavigation() {
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            
+            prevBtn.style.display = currentSection === 1 ? 'none' : 'block';
+            nextBtn.textContent = currentSection === totalSections ? 'Submit Application' : 'Next →';
+        }
+
+        // Dynamic form interactions
+        document.addEventListener('DOMContentLoaded', function() {
+            // Self-employed business description
+            document.querySelectorAll('input[name="selfEmployed"]').forEach(radio => {
+                radio.addEventListener('change', function() {
+                    const businessDesc = document.getElementById('businessDescription');
+                    businessDesc.style.display = this.value === 'yes' ? 'block' : 'none';
+                });
+            });
+
+            // Additional coverage certificate number
+            document.querySelectorAll('input[name="coverageType"]').forEach(radio => {
+                radio.addEventListener('change', function() {
+                    const certNumber = document.getElementById('certificateNumber');
+                    certNumber.style.display = this.value === 'additional' ? 'block' : 'none';
+                });
+            });
+
+            // Existing coverage details
+            document.querySelectorAll('input[name="existingCoverage"]').forEach(radio => {
+                radio.addEventListener('change', function() {
+                    const details = document.getElementById('existingCoverageDetails');
+                    details.style.display = this.value === 'yes' ? 'block' : 'none';
+                });
+            });
+
+            // Weight change details
+            document.querySelectorAll('input[name="weightChange"]').forEach(radio => {
+                radio.addEventListener('change', function() {
+                    const details = document.getElementById('weightChangeDetails');
+                    details.style.display = this.value === 'yes' ? 'block' : 'none';
+                });
+            });
+
+            // Child weight loss details
+            document.querySelectorAll('input[name="childWeightLoss"]').forEach(radio => {
+                radio.addEventListener('change', function() {
+                    const details = document.getElementById('childWeightLossDetails');
+                    details.style.display = this.value === 'yes' ? 'block' : 'none';
+                });
+            });
+
+            // PAD payment section
+            document.querySelectorAll('input[name="paymentMethod"]').forEach(radio => {
+                radio.addEventListener('change', function() {
+                    const padSection = document.getElementById('padPaymentSection');
+                    padSection.style.display = this.value === 'pad' ? 'block' : 'none';
+                });
+            });
+
+            // Initialize progress
+            updateProgress();
+            updateNavigation();
+        });
+
+        // Form validation and submission
+        function validateCurrentSection() {
+            // Add validation logic here
+            return true;
+        }
+
+        function submitApplication() {
+            if (validateCurrentSection()) {
+                alert('Application submitted successfully! You will receive a confirmation email shortly.');
+                // Add actual submission logic here
+            }
+        }
+
+        // Handle next button click
+        document.getElementById('nextBtn').addEventListener('click', function() {
+            if (currentSection === totalSections) {
+                submitApplication();
+            }
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowRight' && currentSection < totalSections) {
+                nextSection();
+            } else if (e.key === 'ArrowLeft' && currentSection > 1) {
+                previousSection();
+            }
+        });
+    </script>
+</body>
+</html>
